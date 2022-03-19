@@ -7,10 +7,10 @@ from SQLAdapter import SQLAdapter
 
 
 class SystemLogger(threading.Thread):
-    def __init__(self, interval: float, printing=False, saving=True):
+    def __init__(self, sql: SQLAdapter, interval: float, printing=False, saving=True):
         super(SystemLogger, self).__init__()
         self._stop = threading.Event()
-        self.sql = SQLAdapter()
+        self.sql = sql
         self.interval = interval
         self.printing = printing
         self.saving = saving
